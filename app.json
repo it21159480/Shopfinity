@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "xplorify",
-    "slug": "xplorify",
+    "name": "shopfinity",
+    "slug": "shopfinity",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./src/assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./src/assets/splash_screen.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
