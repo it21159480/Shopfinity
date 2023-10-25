@@ -31,7 +31,7 @@ const Product = ({ navigation }) => {
             <Pressable
               style={({ pressed }) => [
                 {
-                  backgroundColor: pressed ? 'darkred' : COLORS.primary,
+                  backgroundColor: pressed ? 'Light' : COLORS.primary,
                   justifyContent: 'center',
                   alignItems: 'center',
                   width: 70,
