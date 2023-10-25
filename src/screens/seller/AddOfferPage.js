@@ -184,8 +184,6 @@ const style = StyleSheet.create({
         marginHorizontal: 5,
     },
     fieldContainer: {
-        // flex: 1,
-        // flexDirection: 'column',
         marginTop: 5,
         marginLeft: 10,
         marginRight: 10,
