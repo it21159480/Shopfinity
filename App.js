@@ -23,6 +23,8 @@ import Home from './src/screens/seller/Home';
 import Product from './src/screens/seller/Product';
 import Profile from './src/screens/seller/Profile';
 import AddOfferPage from './src/screens/seller/AddOfferPage';
+import IDVerfication from './src/screens/seller/IDVerfication';
+import BankDetailsForm from './src/screens/seller/BankDetailsForm';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -64,7 +66,7 @@ const App = () => {
             headerTitleAlign: 'center',
             headerPressColor: '#3A95C2',
             headerTitleStyle: { fontSize: 20, color: COLORS.white },
-            headerStyle: { borderBottomRightRadius:100, backgroundColor:COLORS.primary },
+            headerStyle: { borderBottomRightRadius: 100, backgroundColor: COLORS.primary },
           }} />
         <Tab.Screen name='Product' component={Product}
           options={{
@@ -72,7 +74,7 @@ const App = () => {
             headerTitleAlign: 'center',
             headerPressColor: '#3A95C2',
             headerTitleStyle: { fontSize: 20, color: COLORS.white },
-            headerStyle: { backgroundColor:COLORS.primary},
+            headerStyle: { backgroundColor: COLORS.primary },
           }} />
         <Tab.Screen name='Profile' component={Profile}
           options={{
@@ -80,7 +82,7 @@ const App = () => {
             headerTitleAlign: 'center',
             headerPressColor: '#3A95C2',
             headerTitleStyle: { fontSize: 20, color: COLORS.white },
-            headerStyle: {backgroundColor:COLORS.primary },
+            headerStyle: { backgroundColor: COLORS.primary },
           }} />
       </Tab.Navigator>
     );
@@ -150,6 +152,27 @@ const App = () => {
               fontSize: 20,
             },
           }} />
+        <Stack.Screen name='IDVerfication' component={IDVerfication}
+          options={{
+            headerShown: true,
+            title: 'ID Verfication',
+            headerTitleAlign: 'center',
+            headerPressColor: '#3A95C2',
+            headerTitleStyle: {
+              fontSize: 20,
+            },
+          }} />
+           <Stack.Screen name='BankDetailsForm' component={BankDetailsForm}
+          options={{
+            headerShown: true,
+            title: 'Bank',
+            headerTitleAlign: 'center',
+            headerPressColor: '#3A95C2',
+            headerTitleStyle: {
+              fontSize: 20,
+            },
+          }} />
+
 
       </Stack.Navigator>
     </NavigationContainer>

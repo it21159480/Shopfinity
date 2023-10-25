@@ -4,7 +4,7 @@ import * as DocumentPicker from 'expo-document-picker';
 import { Entypo } from '@expo/vector-icons';
 import COLORS from '../consts/colors';
 import * as FileSystem from 'expo-file-system';
-const FilePickerComponent = () => {
+const FilePickerComponent = ({onUpload}) => {
     const [localUri, setLocalUri] = useState([]);
     const [images, setImages] = useState([]);
 
@@ -12,7 +12,7 @@ const FilePickerComponent = () => {
     const pickDocument = async () => {
         let result = await DocumentPicker.getDocumentAsync({
             type: 'image/*',
-            multiple: true,
+            multiple: false,
             copyToCacheDirectory: true,
         });
         console.log('DocumentPicker result:', result);
@@ -29,6 +29,9 @@ const FilePickerComponent = () => {
             }
             setImages(imageUris);
         }
+
+        if (onUpload) {
+            onUpload();}
     }
 
     const saveFileToLocalDirectory = async (uri) => {
@@ -52,10 +55,10 @@ const FilePickerComponent = () => {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             {/* <Button title="Pick Document" onPress={pickDocument} /> */}
-            <Entypo name="upload" size={50} color={COLORS.primary} onPress={pickDocument} />
+            <Entypo name="upload" size={50} color={COLORS.primary} style={{elevation:12}} onPress={pickDocument} />
             {images.map((imageUri, index) => (
                 <View key={index} style={{ marginTop: 15 }}>
-                    <Image source={{ uri: imageUri }} height={400} resizeMode='contain'/>
+                    <Image source={{ uri: imageUri }} height={150} resizeMode='contain'/>
                     <Text>Uploaded: {imageUri}</Text>
                 </View>
             ))}

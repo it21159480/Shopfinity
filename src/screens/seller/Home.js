@@ -68,6 +68,7 @@ const Home = ({ navigation }) => {
             onPressOut={() => {
               setIsBankDetailsPressed(false);
               // Assuming you want navigation to occur on release
+              navigation.navigate('BankDetailsForm');
             }}>
             <View style={[style.navbox, { padding: 20, backgroundColor: isBankDetailsPressed ? COLORS.grey : COLORS.white }]} >
               <View style={{ flexDirection: 'row' }}>
@@ -82,6 +83,7 @@ const Home = ({ navigation }) => {
             onPressOut={() => {
               setIsUserIDVerificationPressed(false);
               // Assuming you want navigation to occur on release
+              navigation.navigate('IDVerfication');
             }}>
             <View style={[style.navbox, { padding: 20, backgroundColor: isUserIDVerificationPressed ? COLORS.grey : COLORS.white , marginBottom:40}]} >
               <View style={{ flexDirection: 'row' }}>
