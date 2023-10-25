@@ -1,1 +1,1 @@
-# Xplorify
+# Shopfinity
