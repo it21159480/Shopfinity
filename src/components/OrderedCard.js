@@ -127,10 +127,6 @@ const OrderedCard = ({ item, getData }) => {
                             <Pressable style={styles.btn} onPress={()=>deleteData(key)} >
                                 <Text style={{ color: COLORS.white, fontSize: 15, fontWeight: 'bold', textAlign:'center', paddingTop:5, }}>DELETE</Text>
                             </Pressable>
-                            {/* <Button title='print' onPress={()=>print()}/>
-                            <Button title='Share' onPress={()=>share()} />
-                            <Button title='edit' onPress={()=>print()} />
-                            <Button title='delete' onPress={()=>deleteData(key)} /> */}
                         </View>
                         
                     </View>
