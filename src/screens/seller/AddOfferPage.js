@@ -21,14 +21,8 @@ const AddOfferPage = ({ navigation }) => {
     const [displayPrice, setDisplayPrice] = useState();
 
     const calculate = ()=>{
-        let price_value=Number(price);
-        
+        let price_value=Number(price);    
     }
-
-
-
-
-
     const handleNext = () => {
 
     }
