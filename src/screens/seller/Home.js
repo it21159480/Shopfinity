@@ -14,9 +14,9 @@ const Home = ({ navigation }) => {
 
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: 'white',  }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white', }}>
       <ScrollView>
-        <View style={{ marginTop: 20,}}>
+        <View style={{ marginTop: 20, }}>
           <View style={[style.navbox, { backgroundColor: 'white' }]} >
             <Image source={require('../../assets/profile.png')} style={[style.img]} resizeMode='contain' />
             <Text style={{ alignSelf: 'center', fontSize: 25, fontWeight: 'bold', textAlign: 'left', marginLeft: 10 }}> SHop name</Text>
@@ -28,7 +28,7 @@ const Home = ({ navigation }) => {
                 setIsOrderPressed(false);
                 // Assuming you want navigation to occur on release
               }}>
-              <View style={{ flexDirection: 'row',alignSelf:'center',backgroundColor: isOrderPressed ? COLORS.grey : COLORS.white , borderRadius:10 }}>
+              <View style={{ flexDirection: 'row', alignSelf: 'center', backgroundColor: isOrderPressed ? COLORS.grey : COLORS.white, borderRadius: 10 }}>
                 <Text style={style.title}>Order Status</Text>
                 <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
               </View>
@@ -48,51 +48,55 @@ const Home = ({ navigation }) => {
               </View>
             </View>
           </View>
-          <Pressable
-            onPressIn={() => setIsRevenuePressed(true)}
-            onPressOut={() => {
-              setIsRevenuePressed(false);
-              // Assuming you want navigation to occur on release
-            }}>
-            <View style={[style.navbox, { paddingLeft: 25, paddingBottom: 25, paddingTop: 25, backgroundColor: isRevenuePressed ? COLORS.grey : COLORS.white , marginTop:30}]} >
-              <View style={{ flexDirection: 'row' }}>
-                <FontAwesome name="line-chart" size={35} color="black" />
-                <Text style={{ alignSelf: 'center', fontSize: 18, fontWeight: 'bold', textAlign: 'left', marginLeft: 10 }}> Revenue</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={24} color="black" style={{ alignSelf: 'center', paddingLeft: 135 }} />
-              </View>
+          <View style={[style.navbox, { paddingLeft: 25, paddingBottom: 25, paddingTop: 25, backgroundColor:COLORS.white, marginTop: 30 }]} >
+            <View style={{ flexDirection: 'row' }}>
+              <FontAwesome name="line-chart" size={35} color="black" />
+              <Text style={{ alignSelf: 'center', fontSize: 18, fontWeight: 'bold', textAlign: 'left', marginLeft: 10,marginRight:135 }}> Revenue</Text>
+              <Pressable
+                onPressIn={() => {
+                  setIsRevenuePressed(true);
+                  navigation.navigate('RevanuePage');
+                }}
+                onPressOut={() => setIsRevenuePressed(false)}>
+                <MaterialIcons name="keyboard-arrow-right" size={24} color="black" style={{backgroundColor: isRevenuePressed ? COLORS.grey : COLORS.white, borderRadius: 15 }} />
+              </Pressable>
+            </View>
 
+          </View>
+
+
+          <View style={[style.navbox, { padding: 20, backgroundColor: COLORS.white }]} >
+            <View style={{ flexDirection: 'row' }}>
+              <FontAwesome name="bank" size={40} color="black" />
+              <Text style={{ alignSelf: 'center', fontSize: 18, fontWeight: 'bold', textAlign: 'left', marginLeft: 10 }}> Add Bank Details</Text>
+              <Pressable
+                onPressIn={() => {
+                  setIsBankDetailsPressed(true)
+                  navigation.navigate('BankDetailsForm');
+                }}
+                onPressOut={() => setIsBankDetailsPressed(false)}>
+                <MaterialIcons name="keyboard-arrow-right" size={24} color="black" style={{ marginLeft: 65, backgroundColor: isBankDetailsPressed ? COLORS.grey : COLORS.white, borderRadius: 15 }} />
+              </Pressable>
             </View>
-          </Pressable>
-          <Pressable
-            onPressIn={() => setIsBankDetailsPressed(true)}
-            onPressOut={() => {
-              setIsBankDetailsPressed(false);
-              // Assuming you want navigation to occur on release
-              navigation.navigate('BankDetailsForm');
-            }}>
-            <View style={[style.navbox, { padding: 20, backgroundColor: isBankDetailsPressed ? COLORS.grey : COLORS.white }]} >
-              <View style={{ flexDirection: 'row' }}>
-                <FontAwesome name="bank" size={40} color="black" />
-                <Text style={{ alignSelf: 'center', fontSize: 18, fontWeight: 'bold', textAlign: 'left', marginLeft: 10 }}> Add Bank Details</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={24} color="black" style={{ alignSelf: 'center', marginLeft: 65 }} />
-              </View>
+          </View>
+
+
+          <View style={[style.navbox, { padding: 20, backgroundColor: COLORS.white, marginBottom: 40 }]} >
+            <View style={{ flexDirection: 'row' }}>
+              <FontAwesome name="id-badge" size={40} color="black" style={{ alignSelf: 'center', marginLeft: 7 }} />
+              <Text style={{ alignSelf: 'center', fontSize: 18, fontWeight: 'bold', textAlign: 'left', marginLeft: 15 }}> User ID Verification</Text>
+              <Pressable
+                onPressIn={() => {
+                  setIsUserIDVerificationPressed(true)
+                  navigation.navigate('IDVerfication');
+                }}
+                onPressOut={() => { setIsUserIDVerificationPressed(false); }}
+              >
+                <MaterialIcons name="keyboard-arrow-right" size={24} color="black" style={{ alignSelf: 'center', marginLeft: 45, backgroundColor: isUserIDVerificationPressed ? COLORS.grey : COLORS.white, borderRadius: 15 }} />
+              </Pressable>
             </View>
-          </Pressable>
-          <Pressable
-            onPressIn={() => setIsUserIDVerificationPressed(true)}
-            onPressOut={() => {
-              setIsUserIDVerificationPressed(false);
-              // Assuming you want navigation to occur on release
-              navigation.navigate('IDVerfication');
-            }}>
-            <View style={[style.navbox, { padding: 20, backgroundColor: isUserIDVerificationPressed ? COLORS.grey : COLORS.white , marginBottom:40}]} >
-              <View style={{ flexDirection: 'row' }}>
-                <FontAwesome name="id-badge" size={40} color="black" style={{ alignSelf: 'center', marginLeft: 7 }} />
-                <Text style={{ alignSelf: 'center', fontSize: 18, fontWeight: 'bold', textAlign: 'left', marginLeft: 15 }}> User ID Verification</Text>
-                <MaterialIcons name="keyboard-arrow-right" size={24} color="black" style={{ alignSelf: 'center', marginLeft: 45 }} />
-              </View>
-            </View>
-          </Pressable>
+          </View>
+
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -102,7 +106,7 @@ const Home = ({ navigation }) => {
 const style = StyleSheet.create({
   container: {
     marginHorizontal: 20,
-    marginTop:20,
+    marginTop: 20,
     alignItems: 'center',
     padding: 15,
     backgroundColor: '#fff',
@@ -137,7 +141,7 @@ const style = StyleSheet.create({
   },
 
   navbox: {
-    
+
     margin: 15,
     marginHorizontal: 20,
     flexDirection: 'row',

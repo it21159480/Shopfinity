@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, SafeAreaView, TextInput, Pressable, Image } from 'react-native';
 import COLORS from '../../consts/colors';
 import { Picker } from '@react-native-picker/picker';
+import UploadImageScreen from '../../components/Upload.js';
 
-const BankDetailsForm = ({ navigation }) => {
-    const [bankName, setBankName] = useState('');
-    const [accountHolderName, setAccountHolderName] = useState('');
-    const [accountNumber, setAccountNumber] = useState('');
-    const [branchName, setBranchName] = useState('');
+const EditProfilePage = ({ navigation }) => {
+   const [uploaded, setUploaded] = useState();
     const [errorMessages, setErrorMessages] = useState({
         bankName: '',
         accountHolderName: '',
@@ -67,67 +65,24 @@ const BankDetailsForm = ({ navigation }) => {
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView>
                 <View style={style.innercontainer}>
+                    {/* <View style={{elevation: 15, marginHorizontal: 15, borderRadius: 15, }}>
+                        <Image source={require('../../assets/editPro.png')} style={style.img} resizeMode='contain' />
+                    </View> */}
                     <View style={style.headcontainer}>
-                        <Text style={style.heading}>Bank Details Form</Text>
+                        <Text style={style.heading}>Upload Business Logo</Text>
                     </View>
-                    <View style={{ elevation: 15, marginHorizontal: 15, borderRadius: 15,  }}>
-                        <Image source={require('../../assets/bank.png')} style={style.img} resizeMode='contain' />
+                    <View style={{ height: 300 , backgroundColor:COLORS.white,elevation:15,width:'auto', marginHorizontal:15}}>
+                    <UploadImageScreen onUpload={() => setUploaded(true)} />
                     </View>
-                    <View style={style.fieldContainer}>
-                        <Text style={style.inputLabel}>Bank Name</Text>
-                        <Picker
-                            mode='dropdown'
-                            style={style.inputBox}
-                            selectedValue={selectedBank}
-                            onValueChange={(itemValue, itemIndex) => {
-                                setSelectedBank(itemValue);
-                                // Set a predefined branch name when a bank is selected
-                                setBranchName(predefinedBranches[itemValue][0]);
-                            }}
-                        >
-                            <Picker.Item label="Select a Bank" value="" />
-                            <Picker.Item label="Commercial Bank of Ceylon PLC" value="Commercial Bank of Ceylon PLC" />
-                            <Picker.Item label="Bank of Ceylon" value="Bank of Ceylon" />
-                            <Picker.Item label="Hatton National Bank PLC" value="Hatton National Bank PLC" />
-                            <Picker.Item label="People's Bank" value="People's Bank" />
-                        </Picker>
-                        <Text style={style.errorText}>{errorMessages.bankName}</Text>
+                    <View style={style.headcontainer} >
+                        <Text style={style.heading}>Add Business / Shop Name </Text>
                     </View>
                     <View style={style.fieldContainer}>
-                        <Text style={style.inputLabel}>Account Holder Name</Text>
+                        <Text style={style.inputLabel}>Business / Shop Name </Text>
                         <TextInput
                             style={style.inputBox}
-                            placeholder="Enter Account Holder Name"
-                            value={accountHolderName}
-                            onChangeText={(text) => setAccountHolderName(text)}
+                            placeholder="Enter Business / Shop Name"
                         />
-                        <Text style={style.errorText}>{errorMessages.accountHolderName}</Text>
-                    </View>
-                    <View style={style.fieldContainer}>
-                        <Text style={style.inputLabel}>Account Number</Text>
-                        <TextInput
-                            style={style.inputBox}
-                            placeholder="Enter Account Number"
-                            keyboardType="numeric"
-                            value={accountNumber}
-                            onChangeText={(text) => setAccountNumber(text)}
-                        />
-                        <Text style={style.errorText}>{errorMessages.accountNumber}</Text>
-                    </View>
-                    <View style={style.fieldContainer}>
-                        <Text style={style.inputLabel}>Branch Name</Text>
-                        <Picker
-                            mode='dropdown'
-                            style={style.inputBox}
-                            selectedValue={branchName}
-                            onValueChange={(itemValue, itemIndex) => setBranchName(itemValue)}
-                        >
-                            {predefinedBranches[selectedBank] &&
-                                predefinedBranches[selectedBank].map((branch, index) => (
-                                    <Picker.Item key={index} label={branch} value={branch} />
-                                ))}
-                        </Picker>
-                        <Text style={style.errorText}>{errorMessages.branchName}</Text>
                     </View>
                     <Pressable
                         style={({ pressed }) => [
@@ -151,7 +106,8 @@ const style = StyleSheet.create({
     img: {
         // marginTop: 10,
         // height: 250,
-        width: 'auto'
+        width: 'auto',
+        height:255
 
     },
     headcontainer: {
@@ -215,4 +171,4 @@ const style = StyleSheet.create({
     },
 });
 
-export default BankDetailsForm;
+export default EditProfilePage;

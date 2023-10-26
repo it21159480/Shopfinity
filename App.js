@@ -25,7 +25,8 @@ import Profile from './src/screens/seller/Profile';
 import AddOfferPage from './src/screens/seller/AddOfferPage';
 import IDVerfication from './src/screens/seller/IDVerfication';
 import BankDetailsForm from './src/screens/seller/BankDetailsForm';
-
+import EditProfilePage from './src/screens/seller/EditProfilePage';
+import RevanuePage from './src/screens/seller/RevenuePage';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const App = () => {
@@ -92,7 +93,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
-      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='InitialPage'>
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='RevanuePage'>
         <Stack.Screen name='WelcomeScreen' component={WelcomeScreen} />
         <Stack.Screen name="FoodHome" component={FoodHome} />
         <Stack.Screen name="FoodDetails" component={FoodDetails} />
@@ -162,10 +163,30 @@ const App = () => {
               fontSize: 20,
             },
           }} />
-           <Stack.Screen name='BankDetailsForm' component={BankDetailsForm}
+        <Stack.Screen name='BankDetailsForm' component={BankDetailsForm}
           options={{
             headerShown: true,
             title: 'Bank',
+            headerTitleAlign: 'center',
+            headerPressColor: '#3A95C2',
+            headerTitleStyle: {
+              fontSize: 20,
+            },
+          }} />
+        <Stack.Screen name='EditProfilePage' component={EditProfilePage}
+          options={{
+            headerShown: true,
+            title: 'Edit Profile',
+            headerTitleAlign: 'center',
+            headerPressColor: '#3A95C2',
+            headerTitleStyle: {
+              fontSize: 20,
+            },
+          }} />
+         <Stack.Screen name='RevanuePage' component={RevanuePage}
+          options={{
+            headerShown: true,
+            title: 'Monthly Revanue',
             headerTitleAlign: 'center',
             headerPressColor: '#3A95C2',
             headerTitleStyle: {

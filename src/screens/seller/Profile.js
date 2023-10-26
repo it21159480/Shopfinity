@@ -15,7 +15,7 @@ const Profile = ({ navigation }) => {
           <View >
             <ImageBackground source={require('../../assets/profile.png')} style={[style.img, { flexDirection: 'row-reverse', }]} resizeMode='contain' >
 
-              <FontAwesome5 name="user-edit" size={25} color={COLORS.primary} style={{ marginRight: 10 }} />
+              <FontAwesome5 name="user-edit" size={25} color={COLORS.primary} style={{ marginRight: 10 }} onPress={()=>navigation.navigate('EditProfilePage')} />
 
             </ImageBackground>
             <Text style={{alignSelf:'center', fontSize:25, fontWeight:'bold'}}> SHop name</Text>
