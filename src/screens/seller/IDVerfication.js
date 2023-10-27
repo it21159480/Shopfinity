@@ -13,7 +13,7 @@ const IDVerfication = ({ navigation }) => {
 
     const handleNext = () => {
         if (frontUploaded && backUploaded) {
-            console.log('submited');
+            alert('user ID sumbited succesfully')
             navigation.navigate('Home');
         } else {
             alert('Please upload both front and back of the NIC.');

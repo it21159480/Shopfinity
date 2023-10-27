@@ -8,37 +8,43 @@ const LoginPage = ({ navigation }) => {
     const [userNameError, setUserNameError] = useState(null);
     const [passwordError, setPasswordError] = useState(null);
 
-    const validateUserName = () => {
-        if (userName === null) return;
-        if (!userName || userName.trim() === "") {
-            setUserNameError("Username is required!");
-        } else {
-            setUserNameError(null);
+    // // const validateUserName = () => {
+    // //     if (userName === null) return;
+    // //     if (!userName || userName.trim() === "") {
+    // //         setUserNameError("Username is required!");
+    // //     } else {
+    // //         setUserNameError(null);
+    // //     }
+    // // };
+    // // const validatePassword = () => {
+    // //     if (password === null) return;
+    // //     if (!password || password.trim() === "") {
+    // //         setPasswordError("Password is required!");
+    // //     } else if (password.length < 8) {
+    // //         setPasswordError("Password must be at least 8 - 20 characters long!");
+    // //     } else if (!/[!@#$%&?:]/.test(password)) {
+    // //         setPasswordError("Password must contain at least one of this ! @ # $ % & ? : special character!");
+    // //     } else if (!/[0-9]/.test(password)) {
+    // //         setPasswordError("Password must contain at least one number!");
+    // //     } else {
+    // //         setPasswordError(null);
+    // //     }
+    // // };
+
+    // useEffect(() => {
+    //     setTimeout(validateUserName, 0);
+    // }, [userName]);
+
+    // useEffect(() => {
+    //     validatePassword();
+    // }, [password]);
+    const credential =() =>{
+        if (userName == 'Mufeel' && password == 'Mufeel'){
+            navigation.navigate('DashBoard');
+        }else{
+            alert('Invalid Username or Password');
         }
-    };
-    const validatePassword = () => {
-        if (password === null) return;
-        if (!password || password.trim() === "") {
-            setPasswordError("Password is required!");
-        } else if (password.length < 8) {
-            setPasswordError("Password must be at least 8 - 20 characters long!");
-        } else if (!/[!@#$%&?:]/.test(password)) {
-            setPasswordError("Password must contain at least one of this ! @ # $ % & ? : special character!");
-        } else if (!/[0-9]/.test(password)) {
-            setPasswordError("Password must contain at least one number!");
-        } else {
-            setPasswordError(null);
-        }
-    };
-
-    useEffect(() => {
-        setTimeout(validateUserName, 0);
-    }, [userName]);
-
-    useEffect(() => {
-        validatePassword();
-    }, [password]);
-
+    }
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
             <ScrollView>
@@ -92,7 +98,7 @@ const LoginPage = ({ navigation }) => {
                                 },
                                 style.btn,
                             ]}
-                                onPressOut={() => navigation.navigate('DashBoard')}>
+                                onPressOut={() => credential()}>
                                 <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>Login</Text>
                             </Pressable>
 

@@ -63,7 +63,7 @@ const Complete = ({ item }) => {
     return (
         <View style={{ flex: 1 }}>
             <FlatList
-                data={list}
+                data={list.slice(1,3)}
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{
                     marginTop: 20,

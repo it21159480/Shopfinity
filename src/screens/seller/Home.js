@@ -19,7 +19,7 @@ const Home = ({ navigation }) => {
         <View style={{ marginTop: 20, }}>
           <View style={[style.navbox, { backgroundColor: 'white' }]} >
             <Image source={require('../../assets/profile.png')} style={[style.img]} resizeMode='contain' />
-            <Text style={{ alignSelf: 'center', fontSize: 25, fontWeight: 'bold', textAlign: 'left', marginLeft: 10 }}> SHop name</Text>
+            <Text style={{ alignSelf: 'center', fontSize: 25, fontWeight: 'bold', textAlign: 'left', marginLeft: 10 }}> Green Farm </Text>
           </View>
           <View style={style.container}>
             <Pressable

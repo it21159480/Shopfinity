@@ -28,6 +28,8 @@ import BankDetailsForm from './src/screens/seller/BankDetailsForm';
 import EditProfilePage from './src/screens/seller/EditProfilePage';
 import RevanuePage from './src/screens/seller/RevenuePage';
 import OrdersPage from './src/screens/seller/OrdersPage';
+import UpdateOffer from './src/screens/seller/UpdateOffer';
+import ProductList from './src/screens/seller/ProductList';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const App = () => {
@@ -198,6 +200,26 @@ const App = () => {
           options={{
             headerShown: true,
             title: 'Orders',
+            headerTitleAlign: 'center',
+            headerPressColor: '#3A95C2',
+            headerTitleStyle: {
+              fontSize: 20,
+            },
+          }} />
+        <Stack.Screen name='UpdateOffer' component={UpdateOffer}
+          options={{
+            headerShown: true,
+            title: 'Update Offer',
+            headerTitleAlign: 'center',
+            headerPressColor: '#3A95C2',
+            headerTitleStyle: {
+              fontSize: 20,
+            },
+          }} />
+        <Stack.Screen name='ProductList' component={ProductList}
+          options={{
+            headerShown: true,
+            title: 'Update Offer',
             headerTitleAlign: 'center',
             headerPressColor: '#3A95C2',
             headerTitleStyle: {

@@ -1,20 +1,26 @@
-import { View, Text, StyleSheet, ScrollView, SafeAreaView, Image, Pressable, TextInput, Button } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, Image, Pressable, TextInput, Button, Alert } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import COLORS from '../../consts/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 
 import ProductImageUploader from '../../components/ProductImageUploader';
 
-const AddOfferPage = ({ navigation }) => {
+const UpdateOffer = (props) => {
 
-    const [productName, setProductName] = useState('');
-    const [productType, setProductType] = useState('');
-    const [offerRate, setOfferRate] = useState('');
-    const [productDescription, setProductDescription] = useState('');
-    const [originalPrice, setOriginalPrice] = useState('');
-    const [displayedPrice, setDisplayedPrice] = useState('');
+    const item = props.route.params;
+    const key = item._id
+    const navigation = useNavigation();
+
+
+    const [productName, setProductName] = useState(item.productName);
+    const [productType, setProductType] = useState(item.productType);
+    const [offerRate, setOfferRate] = useState(item.offerRate);
+    const [productDescription, setProductDescription] = useState(item.productDescription);
+    const [originalPrice, setOriginalPrice] = useState(item.originalPrice);
+    const [displayedPrice, setDisplayedPrice] = useState(item.displayedPrice);
     const [upload, setUpload] = useState(false);
 
     // State to store validation errors
@@ -22,29 +28,29 @@ const AddOfferPage = ({ navigation }) => {
         productName: '',
         originalPrice: '',
         offerRate: '',
-        productType:'',
-        productDescription:'',
+        productType: '',
+        productDescription: '',
     });
-   
+
     useEffect(() => {
         calculateDisplayedPrice();
-      }, [originalPrice, offerRate]);
-    
+    }, [originalPrice, offerRate]);
+
     const calculateDisplayedPrice = () => {
         if (originalPrice && offerRate) {
-          const originalPriceFloat = parseFloat(originalPrice);
-          const offerRateFloat = parseFloat(offerRate);
-      
-          if (!isNaN(originalPriceFloat) && !isNaN(offerRateFloat)) {
-            const commission = originalPriceFloat * 0.08; // 8% commission
-            const discountedPrice = originalPriceFloat - (originalPriceFloat * (offerRateFloat / 100));
-            const calculatedPrice = discountedPrice + commission; // Add commission to the discounted price
-      
-            setDisplayedPrice(calculatedPrice.toFixed(2)); // Display price with two decimal places
-          }
+            const originalPriceFloat = parseFloat(originalPrice);
+            const offerRateFloat = parseFloat(offerRate);
+
+            if (!isNaN(originalPriceFloat) && !isNaN(offerRateFloat)) {
+                const commission = originalPriceFloat * 0.08; // 8% commission
+                const discountedPrice = originalPriceFloat - (originalPriceFloat * (offerRateFloat / 100));
+                const calculatedPrice = discountedPrice + commission; // Add commission to the discounted price
+
+                setDisplayedPrice(calculatedPrice.toFixed(2)); // Display price with two decimal places
+            }
         }
-      };
-      const validateForm = () => {
+    };
+    const validateForm = () => {
         const errors = {};
 
         if (!productName) {
@@ -60,7 +66,7 @@ const AddOfferPage = ({ navigation }) => {
         } else if (isNaN(parseFloat(originalPrice))) {
             errors.originalPrice = 'Price must be a valid number.';
         }
-    
+
         if (!offerRate) {
             errors.offerRate = 'Offer Rate is required.';
         } else if (isNaN(parseFloat(offerRate))) {
@@ -73,7 +79,7 @@ const AddOfferPage = ({ navigation }) => {
             errors.productDescription = 'Product Description cannot exceed 500 characters.';
         }
 
-        
+
         if (Object.keys(errors).length > 0) {
             setErrors(errors);
             return false;
@@ -82,52 +88,67 @@ const AddOfferPage = ({ navigation }) => {
             console.log('Form is valid. Navigating to the next screen...');
             return true;
         }
-    
-    
-    
-    } 
-    const sendData = async () => {
-        const newProduct = {
-            productName,
-            productType, 
-            originalPrice, 
-            offerRate, 
-            displayedPrice,
-            productDescription,
-        }
-    
-        await axios.post("http://192.168.205.78:3000/product", newProduct)
-          .then((response) => {
-            console.log('Server Response orderd Successfully:', response.data);
-            alert("orderd Successfully");
-          
-          })
-          .catch((error) => {
-            alert("Oreder Error")
-            console.error('Oreder Error:', error);
-          });
-      }
-    
-    
+
+
+
+    }
+    // const sendData = async () => {
+    //     const newProduct = {
+    //         productName,
+    //         productType,
+    //         originalPrice,
+    //         offerRate,
+    //         displayedPrice,
+    //         productDescription,
+    //     }
+
+    //     await axios.post("http://192.168.205.78:3000/product", newProduct)
+    //         .then((response) => {
+    //             console.log('Server Response orderd Successfully:', response.data);
+    //             // alert("orderd Successfully");
+
+    //         })
+    //         .catch((error) => {
+    //             // alert("Oreder Error")
+    //             console.error('Oreder Error:', error);
+    //         });
+    // }
+    const UpdateOffer ={
+        productName,
+        originalPrice,
+        offerRate,
+        productType,
+        displayedPrice,
+        productDescription
+    }
+    const updateData = async (id) => {
+        await axios.put(`http://192.168.205.78:3000/product/${id}`, UpdateOffer)
+        .then(() => {       
+            Alert.alert("Product Details Updated Successfully")    
+            console.log("Package Details Updated")
+           
+        })
+        .catch((err) => {
+            Alert.alert("Error occurred while updating the details")
+            console.error('Error:Error occurred while updating the details', err);
+        })
+    }
+
     const handleSubmit = () => {
         const isValid = validateForm();
-        if(!isValid){
+        if (!isValid) {
             console.log("not valid form");
         } else {
-            sendData();
+            updateData(key);
             navigation.navigate('Product', { key: Math.random() });
         }
-        
+
     };
-    
+
     return (
         <SafeAreaView style={{ flex: 1, }}>
             <ScrollView>
                 <View style={style.innercontainer}>
-                    <View style={style.headcontainer} >
-                        <Text style={style.heading}>Upload Photos / Flyers </Text>
-                    </View>
-                    <ProductImageUploader onUpload={()=>setUpload(true)} />
                     <View style={style.headcontainer} >
                         <Text style={style.heading}>Product Details </Text>
                     </View>
@@ -139,7 +160,7 @@ const AddOfferPage = ({ navigation }) => {
                             keyboardType='default'
                             value={productName}
                             autoCapitalize='words'
-                            onChangeText={(text)=>setProductName(text)}
+                            onChangeText={(text) => setProductName(text)}
                         />
                         <Text style={style.errorText}>{errors.productName}</Text>
                     </View>
@@ -150,7 +171,7 @@ const AddOfferPage = ({ navigation }) => {
                             placeholder="Enter Product Type"
                             keyboardType='default'
                             value={productType}
-                            onChangeText={(text)=>setProductType(text)}
+                            onChangeText={(text) => setProductType(text)}
                         />
                         <Text style={style.errorText}>{errors.productType}</Text>
                     </View>
@@ -164,8 +185,8 @@ const AddOfferPage = ({ navigation }) => {
                                 value={originalPrice}
                                 onChangeText={(text) => setOriginalPrice(text)}
                                 maxLength={5}
-                            />                                                     
-                      </View>
+                            />
+                        </View>
                         <Text style={style.errorText}>{errors.originalPrice}</Text>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 15 }}>
                             <Text style={[style.inputLabel, { alignSelf: 'flex-end' }]}>Offer Rate </Text>
@@ -177,13 +198,13 @@ const AddOfferPage = ({ navigation }) => {
                                 onChangeText={(text) => setOfferRate(text)}
                                 maxLength={2}
                             />
-                             
+
                         </View>
                         <Text style={style.errorText}>{errors.offerRate}</Text>
                     </View>
                     <View style={{ borderBottomWidth: 4, borderColor: COLORS.primary, marginTop: 30 }} />
-                    <Text style={{fontStyle:'italic',fontWeight:'200'}}>[Display price is added with commision]</Text>
-                    <View style={[style.fieldContainer, {}]}>      
+                    <Text style={{ fontStyle: 'italic', fontWeight: '200' }}>[Display price is added with commision]</Text>
+                    <View style={[style.fieldContainer, {}]}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 15 }}>
                             <Text style={[style.inputLabel, { alignSelf: 'flex-end' }]}>Display Price</Text>
                             <Text style={[style.inputBox1, { width: 150 }]}>Rs.{displayedPrice}</Text>
@@ -251,7 +272,7 @@ const style = StyleSheet.create({
         backgroundColor: 'white'
     },
 
-     inputBox: {
+    inputBox: {
         backgroundColor: 'rgba(217, 217, 217, 0.31)',
         padding: 8,
         marginHorizontal: 5,
@@ -301,4 +322,4 @@ const style = StyleSheet.create({
     },
 })
 
-export default AddOfferPage;
+export default UpdateOffer;

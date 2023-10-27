@@ -28,6 +28,8 @@ const BankDetailsForm = ({ navigation }) => {
             // For example, you can navigate to another screen using navigation.navigate('NextScreenName');
             // navigation.navigate('NextScreenName');
             console.log('Form is valid. Navigating to the next screen...');
+            alert('bank ditails sumbited succesfully')
+            navigation.navigate('Home');
         } else {
             // Form has errors, handle them as needed (e.g., display error messages)
             console.log('Form has errors. Please correct the errors.');
@@ -139,7 +141,7 @@ const BankDetailsForm = ({ navigation }) => {
                         ]}
                         onPressOut={handleNext}
                     >
-                        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>Next</Text>
+                        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>Submit</Text>
                     </Pressable>
                 </View>
             </ScrollView>

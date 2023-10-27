@@ -6,7 +6,7 @@ import Products from '../../consts/Products'
 import axios from 'axios';
 import ProductListCard from '../../components/ProductListCard';
 
-const Product = ({ navigation }) => {
+const ProductList = ({ navigation }) => {
   const [isIconPressed, setIsIconPressed] = useState(false);
   const [productlist, setProductlist] = useState([]);
 
@@ -69,21 +69,17 @@ const Product = ({ navigation }) => {
     await axios.get("http://192.168.205.78:3000/product")
       .then((res) => {
         setProductlist(res.data);
-  
       })
       .catch((err) => {
-        Alert.alert("Error occurred while retrieving data")
+        // Alert.alert("Error occurred while retrieving data")
         console.error('Error:', err);
       });
   };
 
   useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-        getData();
-    });
-    return unsubscribe;
-}, [navigation]);
-
+    getData();
+    // 
+  }, []);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white', }}>
       <View style={{ marginTop: 5, }}>
@@ -109,7 +105,6 @@ const Product = ({ navigation }) => {
         </View>
         <View style={[{ padding: 10, backgroundColor: COLORS.white, marginHorizontal: 20, borderRadius: 10, borderWidth: 2, borderColor: COLORS.primary }]} >
           <Text style={{ alignSelf: 'center', fontSize: 18, fontWeight: 'bold', textAlign: 'center' }}> Product List</Text>
-         
         </View>
 
       </View>
@@ -164,4 +159,4 @@ const style = StyleSheet.create({
 
   },
 })
-export default Product
+export default ProductList

@@ -18,7 +18,7 @@ const Profile = ({ navigation }) => {
               <FontAwesome5 name="user-edit" size={25} color={COLORS.primary} style={{ marginRight: 10 }} onPress={()=>navigation.navigate('EditProfilePage')} />
 
             </ImageBackground>
-            <Text style={{alignSelf:'center', fontSize:25, fontWeight:'bold'}}> SHop name</Text>
+            <Text style={{alignSelf:'center', fontSize:25, fontWeight:'bold'}}> Green Farm Super market</Text>
           </View>
           <View style={{ marginTop: 50, padding: 10, marginVertical: 30, }}>
             <View style={style.navbox}>

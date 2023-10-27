@@ -126,11 +126,6 @@ const updateData = async (id) => {
         </View>
         <Text style={styles.foodDetails}>Food Name: {name}</Text>
         <Text style={styles.foodDetails}>Price: {total}</Text>
-        {/* <TextInput
-          style={[styles.input,]}
-          placeholder= {total.toString()}
-          editable={false}
-        /> */}
         <TextInput
           style={[styles.input, { textAlignVertical: 'center' }]}
           placeholder=" Enter Contact Number"

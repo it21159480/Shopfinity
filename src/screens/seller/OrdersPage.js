@@ -6,6 +6,7 @@ import Products from '../../consts/Products'
 import Pending from '../../components/Pending';
 import Complete from '../../components/Complete';
 import Reject from '../../components/Reject';
+import ProLists from '../../consts/ProLists'
 
 const OrdersPage = ({ navigation }) => {
   const [selectedComponent, setSelectedComponent] = useState('Pending');
@@ -29,7 +30,7 @@ const OrdersPage = ({ navigation }) => {
             </View>
             <View style={{ width: 1, height: 50, backgroundColor: COLORS.grey, }} />
             <View style={style.statusContainer}>
-              <Text style={style.statusNumber}>0</Text>
+              <Text style={style.statusNumber}>3</Text>
               <Text style={style.statusLabel}>Reject</Text>
             </View>
           </View>
@@ -86,10 +87,10 @@ const OrdersPage = ({ navigation }) => {
         </View>
        
         <View style={{ flex: 1 }}>
-          
-          {selectedComponent === 'Pending' && <Pending item={Products} />}
-          {selectedComponent === 'Complete' && <Complete item={Products} />}
-          {selectedComponent === 'Reject' && <Reject item={Products} />}
+  
+          {selectedComponent === 'Pending' && <Pending item={ProLists} />}
+          {selectedComponent === 'Complete' && <Complete item={ProLists} />}
+          {selectedComponent === 'Reject' && <Reject item={ProLists} />}
         </View>
 
       </View>

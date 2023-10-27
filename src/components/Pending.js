@@ -2,7 +2,8 @@ import { View, Text, SafeAreaView, ImageBackground, ScrollView, StyleSheet, Pres
 import React, { useState, useEffect } from 'react'
 import COLORS from '../consts/colors';
 import { AntDesign } from '@expo/vector-icons';
-import Products from '../consts/Products'
+// import Products from '../consts/Products'
+import ProLists from '../consts/ProLists'
 
 const Pending = ({ item }) => {
     const list = item
@@ -25,7 +26,7 @@ const Pending = ({ item }) => {
                         <Text style={{ fontSize: 15, fontWeight: 'bold', }}>Offer {products.offer}</Text>
                     </View>
 
-                    <View style={{ marginTop: 15, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
+                    {/* <View style={{ marginTop: 15, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
                         <Pressable
                             style={({ pressed }) => [
                                 {
@@ -54,7 +55,7 @@ const Pending = ({ item }) => {
                             onPress={handleDelete}>
                             <Text style={{ color: 'white' }}>Reject</Text>
                         </Pressable>
-                    </View>
+                    </View> */}
                 </View>
             </View>
 
@@ -63,7 +64,7 @@ const Pending = ({ item }) => {
     return (
         <View style={{ flex: 1 }}>
             <FlatList
-                data={list}
+                data={list.slice(0,1)}
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{
                     marginTop: 20,
