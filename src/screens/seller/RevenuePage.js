@@ -10,7 +10,7 @@ import * as Print from 'expo-print';
 
 const RevenuePage = ({ navigation }) => {
   const item = Revenue;
-  const [isIconPressed, setIsIconPressed] = useState(false);
+ 
 
   const html = `
   <html>

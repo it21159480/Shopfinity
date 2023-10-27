@@ -23,7 +23,7 @@ const Profile = ({ navigation }) => {
           <View style={{ marginTop: 50, padding: 10, marginVertical: 30, }}>
             <View style={style.navbox}>
               <Text style={style.navtext}>Order</Text>
-              <FontAwesome5 name="angle-right" size={24} color="black"  onPress={()=>navigation.navigate('Order')}/>
+              <FontAwesome5 name="angle-right" size={24} color="black"  onPress={()=>navigation.navigate('OrdersPage')}/>
             </View>
 
             <View style={style.navbox}>

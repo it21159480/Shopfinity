@@ -15,23 +15,23 @@ const Product = ({ navigation }) => {
     return (
 
       <View style={style.topFoodCard}>
-        <View style={{ borderBottomWidth: 1, borderRadius: 10, borderColor: COLORS.primary, }}>
+        <View style={{ borderRightWidth: 1, borderRadius: 10, borderColor: COLORS.primary, }}>
           <Image style={style.topFoodCardImage} source={products.image} resizeMode='contain' />
         </View>
 
-        <View style={{ paddingVertical: 5, paddingHorizontal: 10, }}>
-          <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: 'left' }}>{products.name}</Text>
-          <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: 'left' }}>{products.type}</Text>
+        <View style={{ paddingVertical: 5, paddingHorizontal: 10, flex:1}}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold',  }}>{products.name}</Text>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', }}>{products.type}</Text>
           <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-between', }}>
             <Text style={{ fontSize: 15, fontWeight: 'bold', }}>Price Rs.{products.price}</Text>
             <Text style={{ fontSize: 15, fontWeight: 'bold', }}>Offer {products.offer}</Text>
           </View>
 
-          <View style={{ marginTop: 20, flexDirection: 'row', justifyContent: 'space-between', }}>
+          <View style={{ marginTop: 15, flexDirection: 'row', justifyContent: 'space-between',marginBottom:2 }}>
             <Pressable
               style={({ pressed }) => [
                 {
-                  backgroundColor: pressed ? 'Light' : COLORS.primary,
+                  backgroundColor: pressed ? COLORS.secondary : COLORS.primary,
                   justifyContent: 'center',
                   alignItems: 'center',
                   width: 70,
@@ -45,7 +45,7 @@ const Product = ({ navigation }) => {
             <Pressable
               style={({ pressed }) => [
                 {
-                  backgroundColor: pressed ? 'darkred' : 'red',
+                  backgroundColor: pressed ? COLORS.secondary : 'red',
                   justifyContent: 'center',
                   alignItems: 'center',
                   width: 70,

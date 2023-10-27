@@ -12,17 +12,33 @@ const AddOfferPage = ({ navigation }) => {
     const [price, setPrice] = useState('');
     const [offerRate, setOfferRate] = useState('');
     const [productDescription, setProductDescription] = useState('');
+    const [originalPrice, setOriginalPrice] = useState('');
+    const [displayedPrice, setDisplayedPrice] = useState('');
 
     // State to store validation errors
     const [errors, setErrors] = useState({});
-
-
     const [commission, setCommission] = useState();
-    const [displayPrice, setDisplayPrice] = useState();
+    useEffect(() => {
+        calculateDisplayedPrice();
+      }, [originalPrice, offerRate]);
+    
+      const calculateDisplayedPrice = () => {
+        if (originalPrice && offerRate) {
+          const originalPriceFloat = parseFloat(originalPrice);
+          const offerRateFloat = parseFloat(offerRate);
+      
+          if (!isNaN(originalPriceFloat) && !isNaN(offerRateFloat)) {
+            const commission = originalPriceFloat * 0.08; // 8% commission
+            const discountedPrice = originalPriceFloat - (originalPriceFloat * (offerRateFloat / 100));
+            const calculatedPrice = discountedPrice + commission; // Add commission to the discounted price
+      
+            setDisplayedPrice(calculatedPrice.toFixed(2)); // Display price with two decimal places
+          }
+        }
+      };
+      
 
-    const calculate = ()=>{
-        let price_value=Number(price);    
-    }
+    
     const handleNext = () => {
 
     }
@@ -66,8 +82,8 @@ const AddOfferPage = ({ navigation }) => {
                                 style={[style.inputBox, { width: 150 }]}
                                 placeholder="Rs."
                                 keyboardType='number-pad'
-                                value={price}
-                                onChangeText={(value) => setPrice(value)}
+                                value={originalPrice}
+                                onChangeText={(value) => setOriginalPrice(value)}
                                 maxLength={5}
                             />
                         </View>
@@ -84,22 +100,19 @@ const AddOfferPage = ({ navigation }) => {
                         </View>
                     </View>
                     <View style={{ borderBottomWidth: 4, borderColor: COLORS.primary, marginTop: 30 }} />
+                    <Text style={{fontStyle:'italic',fontWeight:'200'}}>[Display price is added with commision]</Text>
                     <View style={[style.fieldContainer, {}]}>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        {/* <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                             <Text style={[style.inputLabel, { alignSelf: 'flex-end' }]}>Commission </Text>
                             <TextInput
                                 style={[style.inputBox1, { width: 150 }]}
                                 editable={false}
                                 value={commission}
                             />
-                        </View>
+                        </View> */}
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 15 }}>
                             <Text style={[style.inputLabel, { alignSelf: 'flex-end' }]}>Display Price</Text>
-                            <TextInput
-                                style={[style.inputBox1, { width: 150 }]}
-                                editable={false}
-                                value={displayPrice}
-                            />
+                            <Text style={[style.inputBox1, { width: 150 }]}>Rs.{displayedPrice}</Text>
                         </View>
                     </View>
 

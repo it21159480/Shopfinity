@@ -27,6 +27,7 @@ import IDVerfication from './src/screens/seller/IDVerfication';
 import BankDetailsForm from './src/screens/seller/BankDetailsForm';
 import EditProfilePage from './src/screens/seller/EditProfilePage';
 import RevanuePage from './src/screens/seller/RevenuePage';
+import OrdersPage from './src/screens/seller/OrdersPage';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const App = () => {
@@ -93,7 +94,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
-      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='RevanuePage'>
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='InitialPage'>
         <Stack.Screen name='WelcomeScreen' component={WelcomeScreen} />
         <Stack.Screen name="FoodHome" component={FoodHome} />
         <Stack.Screen name="FoodDetails" component={FoodDetails} />
@@ -183,7 +184,7 @@ const App = () => {
               fontSize: 20,
             },
           }} />
-         <Stack.Screen name='RevanuePage' component={RevanuePage}
+        <Stack.Screen name='RevanuePage' component={RevanuePage}
           options={{
             headerShown: true,
             title: 'Monthly Revanue',
@@ -193,7 +194,16 @@ const App = () => {
               fontSize: 20,
             },
           }} />
-
+        <Stack.Screen name='OrdersPage' component={OrdersPage}
+          options={{
+            headerShown: true,
+            title: 'Orders',
+            headerTitleAlign: 'center',
+            headerPressColor: '#3A95C2',
+            headerTitleStyle: {
+              fontSize: 20,
+            },
+          }} />
 
       </Stack.Navigator>
     </NavigationContainer>

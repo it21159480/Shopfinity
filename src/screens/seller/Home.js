@@ -23,11 +23,11 @@ const Home = ({ navigation }) => {
           </View>
           <View style={style.container}>
             <Pressable
-              onPressIn={() => setIsOrderPressed(true)}
-              onPressOut={() => {
-                setIsOrderPressed(false);
-                // Assuming you want navigation to occur on release
-              }}>
+              onPressIn={() => {
+                setIsOrderPressed(true);
+                navigation.navigate('OrdersPage');
+              }}
+              onPressOut={() => setIsOrderPressed(false)}>
               <View style={{ flexDirection: 'row', alignSelf: 'center', backgroundColor: isOrderPressed ? COLORS.grey : COLORS.white, borderRadius: 10 }}>
                 <Text style={style.title}>Order Status</Text>
                 <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
@@ -38,10 +38,12 @@ const Home = ({ navigation }) => {
                 <Text style={style.statusNumber}>1</Text>
                 <Text style={style.statusLabel}>Pending</Text>
               </View>
+              <View style={{width:1,height:50, backgroundColor:COLORS.grey,}} />
               <View style={style.statusContainer}>
                 <Text style={style.statusNumber}>45</Text>
                 <Text style={style.statusLabel}>Complete</Text>
               </View>
+              <View style={{width:1,height:50, backgroundColor:COLORS.grey,}} />
               <View style={style.statusContainer}>
                 <Text style={style.statusNumber}>0</Text>
                 <Text style={style.statusLabel}>Reject</Text>
@@ -63,8 +65,6 @@ const Home = ({ navigation }) => {
             </View>
 
           </View>
-
-
           <View style={[style.navbox, { padding: 20, backgroundColor: COLORS.white }]} >
             <View style={{ flexDirection: 'row' }}>
               <FontAwesome name="bank" size={40} color="black" />
@@ -79,8 +79,6 @@ const Home = ({ navigation }) => {
               </Pressable>
             </View>
           </View>
-
-
           <View style={[style.navbox, { padding: 20, backgroundColor: COLORS.white, marginBottom: 40 }]} >
             <View style={{ flexDirection: 'row' }}>
               <FontAwesome name="id-badge" size={40} color="black" style={{ alignSelf: 'center', marginLeft: 7 }} />
