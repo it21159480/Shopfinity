@@ -122,7 +122,7 @@ const UpdateOffer = (props) => {
         productDescription
     }
     const updateData = async (id) => {
-        await axios.put(`http://192.168.205.78:3000/product/${id}`, UpdateOffer)
+        await axios.put(`http://172.28.14.90:3000/product/${id}`, UpdateOffer)
         .then(() => {       
             Alert.alert("Product Details Updated Successfully")    
             console.log("Package Details Updated")

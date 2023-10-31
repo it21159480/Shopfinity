@@ -96,7 +96,7 @@ const AddOfferPage = ({ navigation }) => {
             productDescription,
         }
     
-        await axios.post("http://192.168.205.78:3000/product", newProduct)
+        await axios.post("http://172.28.14.90:3000/product", newProduct)
           .then((response) => {
             console.log('Server Response orderd Successfully:', response.data);
             alert("orderd Successfully");

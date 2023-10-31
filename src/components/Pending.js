@@ -26,7 +26,7 @@ const Pending = ({ item }) => {
                         <Text style={{ fontSize: 15, fontWeight: 'bold', }}>Offer {products.offer}</Text>
                     </View>
 
-                    {/* <View style={{ marginTop: 15, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
+                    <View style={{ marginTop: 15, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
                         <Pressable
                             style={({ pressed }) => [
                                 {
@@ -55,7 +55,7 @@ const Pending = ({ item }) => {
                             onPress={handleDelete}>
                             <Text style={{ color: 'white' }}>Reject</Text>
                         </Pressable>
-                    </View> */}
+                    </View>
                 </View>
             </View>
 

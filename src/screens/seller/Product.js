@@ -66,7 +66,7 @@ const Product = ({ navigation }) => {
   }
 
   const getData = async () => {
-    await axios.get("http://192.168.205.78:3000/product")
+    await axios.get("http://172.28.14.90:3000/product")
       .then((res) => {
         setProductlist(res.data);
   

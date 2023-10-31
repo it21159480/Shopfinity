@@ -43,7 +43,7 @@ const ProductListCard = ({ item, getData }) => {
                 {
                     text: 'Delete',
                     onPress: async () => {
-                        await axios.delete(`http://192.168.205.78:3000/product/${id}`)
+                        await axios.delete(`http://172.28.14.90:3000/product/${id}`)
                             .then(() => {
                                 Alert.alert("product Details Deleted Successfully");
                                 getData();

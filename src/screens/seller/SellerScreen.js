@@ -4,13 +4,13 @@ import COLORS from '../../consts/colors'
 
 
 
-const InitialPage = ({ navigation }) => {
+const SellerScreen = ({ navigation }) => {
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.white }}>
             <ScrollView>
                 <ImageBackground
                     style={style.headerImage}
-                    source={require('../../assets/shopping.png')}
+                    source={require('../../assets/business.jpg')}
                 />
                 <View style={{ alignSelf: 'center', marginVertical: 30  }}>
                     <View style={style.topCard}>
@@ -19,25 +19,18 @@ const InitialPage = ({ navigation }) => {
                                 backgroundColor: pressed ? '#D2E6FF' : '#003B77',
                             },
                             style.btn,
-                        ]} onPressOut={() => navigation.navigate('SellerScreen')}>
-                            <Text style={style.textStyle}>Seller</Text>
+                        ]} >
+                            <Text style={style.textStyle}>Startup</Text>
                         </Pressable>
                         <Pressable style={({ pressed }) => [
                             {
                                 backgroundColor: pressed ? '#D2E6FF' : '#003B77',
                             },
                             style.btn,
-                        ]}>
-                            <Text style={style.textStyle}>Buyer</Text>
+                        ]}onPressOut={() => navigation.navigate('LoginPage')}>
+                            <Text style={style.textStyle}>Super Market</Text>
                         </Pressable>
-                        <Pressable style={({ pressed }) => [
-                            {
-                                backgroundColor: pressed ? '#D2E6FF' : '#003B77',
-                            },
-                            style.btn,
-                        ]}>
-                            <Text style={style.textStyle}>Driver</Text>
-                        </Pressable>
+                       
                     </View>
                 </View>
             </ScrollView>
@@ -76,4 +69,4 @@ const style = StyleSheet.create({
     },
 })
 
-export default InitialPage
+export default SellerScreen

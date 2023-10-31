@@ -30,6 +30,7 @@ import RevanuePage from './src/screens/seller/RevenuePage';
 import OrdersPage from './src/screens/seller/OrdersPage';
 import UpdateOffer from './src/screens/seller/UpdateOffer';
 import ProductList from './src/screens/seller/ProductList';
+import SellerScreen from './src/screens/seller/SellerScreen';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const App = () => {
@@ -105,6 +106,7 @@ const App = () => {
         <Stack.Screen name='UpdateOrder' component={UpdateOrder} />
         <Stack.Screen name='UserMap' component={UserMap} />
         <Stack.Screen name='InitialPage' component={InitialPage} />
+        <Stack.Screen name='SellerScreen' component={SellerScreen} />
         <Stack.Screen name='LoginPage' component={LoginPage}
           options={{
             headerShown: true,
