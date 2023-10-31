@@ -16,6 +16,7 @@ const AddOfferPage = ({ navigation }) => {
     const [originalPrice, setOriginalPrice] = useState('');
     const [displayedPrice, setDisplayedPrice] = useState('');
     const [upload, setUpload] = useState(false);
+    
 
     // State to store validation errors
     const [errors, setErrors] = useState({
