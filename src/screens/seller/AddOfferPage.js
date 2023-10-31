@@ -1,8 +1,6 @@
 import { View, Text, StyleSheet, ScrollView, SafeAreaView, Image, Pressable, TextInput, Button } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import COLORS from '../../consts/colors'
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import axios from 'axios';
 
 import ProductImageUploader from '../../components/ProductImageUploader';
@@ -16,9 +14,6 @@ const AddOfferPage = ({ navigation }) => {
     const [originalPrice, setOriginalPrice] = useState('');
     const [displayedPrice, setDisplayedPrice] = useState('');
     const [upload, setUpload] = useState(false);
-    
-
-    // State to store validation errors
     const [errors, setErrors] = useState({
         productName: '',
         originalPrice: '',
@@ -83,9 +78,8 @@ const AddOfferPage = ({ navigation }) => {
             console.log('Form is valid. Navigating to the next screen...');
             return true;
         }
-    
-    
-    
+     
+
     } 
     const sendData = async () => {
         const newProduct = {
