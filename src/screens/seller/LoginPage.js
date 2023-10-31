@@ -39,18 +39,19 @@ const LoginPage = ({ navigation }) => {
     //     validatePassword();
     // }, [password]);
     const credential =() =>{
-        if (userName == 'Mufeel' && password == 'Mufeel'){
-            navigation.navigate('DashBoard');
-        }else{
-            alert('Invalid Username or Password');
-        }
+        // if (userName == 'Mufeel' && password == 'Mufeel'){
+        //     navigation.navigate('DashBoard');
+        // }else{
+        //     alert('Invalid Username or Password');
+        // }
+        navigation.navigate('DashBoard');
     }
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
             <ScrollView>
                 <View style={{ marginTop: 2, height: '100%', }}>
                     <View>
-                        <Image source={require('../../assets/seller.png')} style={style.img} resizeMode='contain' />
+                        <Image source={require('../../../assets/seller.png')} style={style.img} resizeMode='contain' />
                     </View>
                     <View style={{ marginHorizontal: 10, padding: 10, marginVertical: 30 }}>
                         <View>

@@ -13,7 +13,7 @@ const Profile = ({ navigation }) => {
       <ScrollView>
         <View style={{ marginTop: 2,  }}>
           <View >
-            <ImageBackground source={require('../../assets/profile.png')} style={[style.img, { flexDirection: 'row-reverse', }]} resizeMode='contain' >
+            <ImageBackground source={require('../../../assets/profile.png')} style={[style.img, { flexDirection: 'row-reverse', }]} resizeMode='contain' >
 
               <FontAwesome5 name="user-edit" size={25} color={COLORS.primary} style={{ marginRight: 10 }} onPress={()=>navigation.navigate('EditProfilePage')} />
 

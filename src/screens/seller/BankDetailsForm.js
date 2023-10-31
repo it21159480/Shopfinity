@@ -73,7 +73,7 @@ const BankDetailsForm = ({ navigation }) => {
                         <Text style={style.heading}>Bank Details Form</Text>
                     </View>
                     <View style={{ elevation: 15, marginHorizontal: 15, borderRadius: 15,  }}>
-                        <Image source={require('../../assets/bank.png')} style={style.img} resizeMode='contain' />
+                        <Image source={require('../../../assets/bank.png')} style={style.img} resizeMode='contain' />
                     </View>
                     <View style={style.fieldContainer}>
                         <Text style={style.inputLabel}>Bank Name</Text>

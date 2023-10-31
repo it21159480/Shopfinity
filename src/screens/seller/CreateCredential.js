@@ -63,7 +63,7 @@ const handleSignup = ()=>{
             <ScrollView>
                 <View style={{ marginTop: 2, height: '100%', backgroundColor: 'white' }}>
                     <View style={{}}>
-                        <Image source={require('../../assets/credentials.png')} style={style.img} resizeMode='contain' />
+                        <Image source={require('../../../assets/credentials.png')} style={style.img} resizeMode='contain' />
                     </View>
                     <View style={{ marginHorizontal: 10, padding: 10, marginVertical: 30 }}>
                         <View>

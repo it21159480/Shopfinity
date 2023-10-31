@@ -10,7 +10,7 @@ const InitialPage = ({ navigation }) => {
             <ScrollView>
                 <ImageBackground
                     style={style.headerImage}
-                    source={require('../../assets/shopping.png')}
+                    source={require('../../../assets/shopping.png')}
                 />
                 <View style={{ alignSelf: 'center', marginVertical: 30  }}>
                     <View style={style.topCard}>

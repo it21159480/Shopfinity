@@ -10,7 +10,7 @@ const RegDetailsPage = ({ navigation }) => {
                 <View style={{ marginTop: 2,   }}>
 
                     <View >
-                        <Image source={require('../../assets/reg.png')} style={style.img} resizeMode='contain' />
+                        <Image source={require('../../../assets/reg.png')} style={style.img} resizeMode='contain' />
                     </View>
                     <View style={{ padding: 10, marginVertical: 40, alignSelf: 'center' }}>
                         <View style={{ flexDirection: 'row', marginBottom: 20, }}>

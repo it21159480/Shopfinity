@@ -10,7 +10,7 @@ const SellerScreen = ({ navigation }) => {
             <ScrollView>
                 <ImageBackground
                     style={style.headerImage}
-                    source={require('../../assets/business.jpg')}
+                    source={require('../../../assets/business.jpg')}
                 />
                 <View style={{ alignSelf: 'center', marginVertical: 30  }}>
                     <View style={style.topCard}>
