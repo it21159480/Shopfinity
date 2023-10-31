@@ -39,12 +39,11 @@ const LoginPage = ({ navigation }) => {
     //     validatePassword();
     // }, [password]);
     const credential =() =>{
-        // if (userName == 'Mufeel' && password == 'Mufeel'){
-        //     navigation.navigate('DashBoard');
-        // }else{
-        //     alert('Invalid Username or Password');
-        // }
-        navigation.navigate('DashBoard');
+        if (userName == 'Mufeel' && password == 'Mufeel'){
+            navigation.navigate('DashBoard');
+        }else{
+            alert('Invalid Username or Password');
+        }
     }
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>

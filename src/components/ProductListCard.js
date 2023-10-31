@@ -1,10 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Alert, Pressable} from 'react-native';
 import axios from 'axios';
-import { shareAsync } from 'expo-sharing';
-import * as Print from 'expo-print';
 import { useNavigation } from '@react-navigation/native';
-import searchFoods from '../consts/searchFood';
 import COLORS from '../consts/colors';
 import products from '../consts/Products';
 

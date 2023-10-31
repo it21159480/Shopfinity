@@ -7,13 +7,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import COLORS from './src/consts/colors';
-import FoodDetails from './src/screens/FoodDetails';
-import BookingScreen from './src/screens/FoodBooking.js';
-import FoodHome from './src/screens/FoodHome.js'
-import WelcomeScreen from './src/screens/WelcomeScreen';
-import OrederedPage from './src/screens/OrderedPage';
-import UpdateOrder from './src/screens/UpdateOrder';
-import UserMap from './src/screens/UserMap';
 import InitialPage from './src/screens/seller/InitialPage';
 import LoginPage from './src/screens/seller/LoginPage';
 import RegDetailsPage from './src/screens/seller/RegDetailsPage';
@@ -29,7 +22,6 @@ import EditProfilePage from './src/screens/seller/EditProfilePage';
 import RevanuePage from './src/screens/seller/RevenuePage';
 import OrdersPage from './src/screens/seller/OrdersPage';
 import UpdateOffer from './src/screens/seller/UpdateOffer';
-import ProductList from './src/screens/seller/ProductList';
 import SellerScreen from './src/screens/seller/SellerScreen';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -98,13 +90,6 @@ const App = () => {
     <NavigationContainer>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='InitialPage'>
-        <Stack.Screen name='WelcomeScreen' component={WelcomeScreen} />
-        <Stack.Screen name="FoodHome" component={FoodHome} />
-        <Stack.Screen name="FoodDetails" component={FoodDetails} />
-        <Stack.Screen name="BookingScreen" component={BookingScreen} />
-        <Stack.Screen name='OrderedPage' component={OrederedPage} />
-        <Stack.Screen name='UpdateOrder' component={UpdateOrder} />
-        <Stack.Screen name='UserMap' component={UserMap} />
         <Stack.Screen name='InitialPage' component={InitialPage} />
         <Stack.Screen name='SellerScreen' component={SellerScreen} />
         <Stack.Screen name='LoginPage' component={LoginPage}
@@ -218,16 +203,7 @@ const App = () => {
               fontSize: 20,
             },
           }} />
-        <Stack.Screen name='ProductList' component={ProductList}
-          options={{
-            headerShown: true,
-            title: 'Update Offer',
-            headerTitleAlign: 'center',
-            headerPressColor: '#3A95C2',
-            headerTitleStyle: {
-              fontSize: 20,
-            },
-          }} />
+       
 
       </Stack.Navigator>
     </NavigationContainer>
@@ -235,4 +211,3 @@ const App = () => {
 };
 
 export default App;
-//  and upon confirming the form i need you to give me the codes to generate a report which will include all the booking details and 
